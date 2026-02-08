@@ -1,5 +1,15 @@
 import React from "react";
 
+const theme = {
+  colors: {
+    primary: "#F97316",
+    secondary: "#111827",
+    background: "#F5F1EA",
+    accent: "#22C55E",
+    border: "#E5E7EB",
+  },
+};
+
 export const metadata = {
   title: "Saving Grace",
   description:
@@ -9,47 +19,71 @@ export const metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body style={{ fontFamily: "system-ui, -apple-system, Roboto, sans-serif", margin: 0 }}>
+      <body style={{ fontFamily: "system-ui, -apple-system, Roboto, sans-serif", margin: 0, background: "#FFFFFF" }}>
         <header
           style={{
-            padding: "1rem 2rem",
-            borderBottom: "1px solid #eee",
+            padding: "1.5rem 2rem",
+            borderBottom: `2px solid ${theme.colors.border}`,
             display: "flex",
             justifyContent: "space-between",
             alignItems: "center",
-            background: "#fff",
+            background: "#FFFFFF",
+            boxShadow: "0 2px 8px rgba(0, 0, 0, 0.05)",
           }}
         >
           <a href="/" style={{ textDecoration: "none", color: "inherit" }}>
-            <h1 style={{ margin: 0, fontSize: "1.125rem" }}>Saving Grace</h1>
+            <strong style={{ fontSize: "1.5rem", color: theme.colors.secondary, letterSpacing: "-0.5px" }}>
+              Saving Grace
+            </strong>
           </a>
 
-          <nav>
-            <a href="/app" style={{ marginRight: 16 }}>
+          <nav style={{ display: "flex", gap: "2rem", alignItems: "center" }}>
+            <a href="/app" style={{ color: theme.colors.secondary, textDecoration: "none", fontSize: "0.95rem", fontWeight: "500", transition: "color 0.2s" }}>
               Open the App
             </a>
-            <a href="/get-support">Get Support</a>
+            <a href="/get-support" style={{ fontWeight: "600", textDecoration: "none", fontSize: "0.95rem", padding: "0.5rem 1rem", background: theme.colors.primary, color: "#fff", borderRadius: "8px", transition: "background 0.2s" }}>
+              Get Support
+            </a>
           </nav>
         </header>
 
-        <main style={{ padding: "2rem", maxWidth: 1100, margin: "0 auto" }}>{children}</main>
+        <main>{children}</main>
 
         <footer
           style={{
-            padding: "1.5rem 2rem",
-            borderTop: "1px solid #eee",
-            marginTop: 48,
-            textAlign: "center",
-            color: "#666",
-            background: "#fafafa",
+            padding: "3rem 2rem",
+            borderTop: `2px solid ${theme.colors.border}`,
+            marginTop: "4rem",
+            background: theme.colors.background,
           }}
         >
-          <div>© {new Date().getFullYear()} Saving Grace</div>
-          <div style={{ marginTop: 8 }}>
-            <a href="/schools" style={{ marginRight: 12 }}>
-              For Schools
-            </a>
-            <a href="/app">Open the App</a>
+          <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: "2rem", marginBottom: "2rem" }}>
+              <div>
+                <strong style={{ color: theme.colors.secondary }}>Saving Grace</strong>
+                <p style={{ color: "#666", fontSize: "0.9rem", marginTop: "0.5rem" }}>
+                  Supporting students, strengthening schools.
+                </p>
+              </div>
+              <div>
+                <strong style={{ color: theme.colors.secondary }}>For</strong>
+                <ul style={{ listStyle: "none", padding: 0, margin: "0.5rem 0 0 0" }}>
+                  <li><a href="/schools" style={{ color: "#666", textDecoration: "none", fontSize: "0.9rem" }}>Schools & Districts</a></li>
+                  <li><a href="/churches" style={{ color: "#666", textDecoration: "none", fontSize: "0.9rem" }}>Churches & Communities</a></li>
+                  <li><a href="/get-support" style={{ color: "#666", textDecoration: "none", fontSize: "0.9rem" }}>Students & Families</a></li>
+                </ul>
+              </div>
+              <div>
+                <strong style={{ color: theme.colors.secondary }}>App</strong>
+                <ul style={{ listStyle: "none", padding: 0, margin: "0.5rem 0 0 0" }}>
+                  <li><a href="/app" style={{ color: "#666", textDecoration: "none", fontSize: "0.9rem" }}>Open Web App</a></li>
+                  <li><a href="mailto:hello@savinggrace.school" style={{ color: "#666", textDecoration: "none", fontSize: "0.9rem" }}>Contact Us</a></li>
+                </ul>
+              </div>
+            </div>
+            <div style={{ borderTop: `1px solid ${theme.colors.border}`, paddingTop: "2rem", textAlign: "center", color: "#999", fontSize: "0.85rem" }}>
+              <p>© {new Date().getFullYear()} Saving Grace. All rights reserved. A platform for school safety and student wellness.</p>
+            </div>
           </div>
         </footer>
       </body>
