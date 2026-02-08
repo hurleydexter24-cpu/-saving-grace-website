@@ -1,289 +1,187 @@
 'use client';
 
 import Link from 'next/link';
-import { Metadata } from 'next';
-
-export const metadata: Metadata = {
-  title: 'For Churches & Community | Saving Grace',
-  description: 'How churches and community partners can support student safety and family wellness without overstepping. Education, awareness, partnership.',
-};
+import { theme, styles } from '@/styles/theme';
 
 export default function ChurchesPage() {
   return (
-    <main className="min-h-screen bg-gradient-to-b from-slate-50 to-white">
+    <main style={{ background: '#FFFFFF', minHeight: '100vh' }}>
       {/* Hero */}
-      <section className="px-6 py-20 sm:py-28 text-center max-w-4xl mx-auto">
-        <h1 className="text-5xl sm:text-6xl font-bold text-slate-900 mb-6">
+      <section style={{ ...styles.heroSection, textAlign: 'center', marginBottom: theme.spacing.xl }} className="max-w-4xl mx-auto px-6">
+        <h1 style={{ ...styles.heading1, color: theme.colors.primary, marginBottom: theme.spacing.lg }}>
           Supporting Students & Families, Together
         </h1>
-        <p className="text-xl text-slate-600 mb-8">
+        <p style={{ ...styles.body, fontSize: '1.2rem', marginBottom: theme.spacing.xl }}>
           Churches and community organizations play a vital role in student safety and wellness. Saving Grace helps you partner with schools in a clear, appropriate, and impactful way.
         </p>
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Link href="/get-support" className="px-8 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition">
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: theme.spacing.md, justifyContent: 'center' }}>
+          <Link href="/get-support" style={{ ...styles.primaryButton, textDecoration: 'none', display: 'inline-block' }}>
             Learn More
           </Link>
-          <Link href="/" className="px-8 py-3 border-2 border-blue-600 text-blue-600 rounded-lg font-semibold hover:bg-blue-50 transition">
+          <Link href="/" style={{ ...styles.secondaryButton, textDecoration: 'none', display: 'inline-block' }}>
             Home
           </Link>
         </div>
       </section>
 
       {/* The Vision */}
-      <section className="px-6 py-16 max-w-4xl mx-auto">
-        <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">Why This Matters</h2>
-        <p className="text-lg text-slate-600 mb-8 text-center">
-          Students today face unprecedented stress: bullying, isolation, family instability, mental health challenges. Schools work hard, but they cannot do it alone.
-        </p>
-        <p className="text-lg text-slate-600 mb-8 text-center">
-          Churches and community organizations have something schools don't: deep relationships with families, spiritual care, and long-term presence in the community.
-        </p>
-        <p className="text-lg text-slate-600 text-center font-semibold text-blue-700">
-          Saving Grace creates a safe way for these two institutions to work together—without blurring lines or overstepping roles.
-        </p>
+      <section style={{ maxWidth: '900px', margin: `0 auto ${theme.spacing.xl}`, padding: `0 ${theme.spacing.lg}` }}>
+        <h2 style={{ ...styles.heading2, textAlign: 'center', marginBottom: theme.spacing.lg }}>Why This Matters</h2>
+        <div style={{ textAlign: 'center' }}>
+          <p style={{ ...styles.body, fontSize: '1.1rem', marginBottom: theme.spacing.lg }}>
+            Students today face unprecedented stress: bullying, isolation, family instability, mental health challenges. Schools work hard, but they cannot do it alone.
+          </p>
+          <p style={{ ...styles.body, fontSize: '1.1rem', marginBottom: theme.spacing.lg }}>
+            Churches and community organizations have something schools don't: deep relationships with families, spiritual care, and long-term presence in the community.
+          </p>
+          <p style={{ ...styles.body, fontSize: '1.1rem', fontWeight: '600', color: theme.colors.primary }}>
+            Saving Grace creates a safe way for these two institutions to work together—without blurring lines or overstepping roles.
+          </p>
+        </div>
       </section>
 
-      {/* What We're NOT */}
-      <section className="px-6 py-16 bg-amber-50 rounded-lg max-w-4xl mx-auto my-12">
-        <h2 className="text-2xl font-bold text-slate-900 mb-8 text-center">Clear Boundaries (This Matters)</h2>
-        <div className="grid md:grid-cols-2 gap-8">
-          <div className="p-6 bg-white rounded-lg border-2 border-amber-300">
-            <h3 className="text-lg font-semibold text-red-700 mb-4">❌ We are NOT</h3>
-            <ul className="space-y-2 text-slate-700">
-              <li>• Replacing school counselors or therapists</li>
-              <li>• Providing medical or mental health treatment</li>
-              <li>• Bypassing parental consent</li>
-              <li>• Operating outside legal/FERPA frameworks</li>
+      {/* Clear Boundaries */}
+      <section style={{ maxWidth: '900px', margin: `${theme.spacing.xl} auto`, padding: theme.spacing.lg, background: theme.colors.lightBg, borderRadius: theme.radius.lg }}>
+        <h2 style={{ ...styles.heading2, textAlign: 'center', marginBottom: theme.spacing.xl }}>Clear Boundaries (This Matters)</h2>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: theme.spacing.lg }}>
+          <div style={styles.sectionCard}>
+            <h3 style={{ ...styles.heading3, color: theme.colors.primary, marginBottom: theme.spacing.md }}>✓ What We DO Support</h3>
+            <ul style={{ ...styles.body, marginLeft: theme.spacing.lg, lineHeight: '2' }}>
+              <li>Spiritual care & guidance</li>
+              <li>Youth group & mentorship</li>
+              <li>Family support services</li>
+              <li>Community resource connections</li>
+              <li>Prevention education</li>
             </ul>
           </div>
-          <div className="p-6 bg-white rounded-lg border-2 border-green-300">
-            <h3 className="text-lg font-semibold text-green-700 mb-4">✓ We ARE</h3>
-            <ul className="space-y-2 text-slate-700">
-              <li>• A bridge between schools and families</li>
-              <li>• A resource referral & awareness system</li>
-              <li>• Education and outreach partners</li>
-              <li>• Supporting preventive wellness, not crisis intervention</li>
+          <div style={styles.sectionCard}>
+            <h3 style={{ ...styles.heading3, color: theme.colors.secondary, marginBottom: theme.spacing.md }}>✗ What We Do NOT Do</h3>
+            <ul style={{ ...styles.body, marginLeft: theme.spacing.lg, lineHeight: '2', color: theme.colors.secondary }}>
+              <li>Make clinical diagnoses</li>
+              <li>Replace school counselors</li>
+              <li>Make disciplinary decisions</li>
+              <li>Share student data without consent</li>
+              <li>Provide therapy or medication</li>
             </ul>
           </div>
         </div>
       </section>
 
-      {/* How Churches Partner */}
-      <section className="px-6 py-16 max-w-4xl mx-auto">
-        <h2 className="text-3xl font-bold text-slate-900 mb-12 text-center">How Churches Can Partner</h2>
-        
-        <div className="space-y-12">
-          {/* Strategy 1 */}
-          <div className="border-l-4 border-blue-500 pl-6">
-            <h3 className="text-2xl font-bold text-slate-900 mb-4">1. Awareness & Education</h3>
-            <p className="text-slate-600 mb-4">
-              Host community workshops on bullying, mental health, family stress, and how students can get help safely.
-            </p>
-            <ul className="space-y-2 text-slate-600 ml-4">
-              <li>• "Recognizing signs of student distress"</li>
-              <li>• "How families can support wellness"</li>
-              <li>• "The role of community in school safety"</li>
-              <li>• Feature Saving Grace as one trusted resource</li>
-            </ul>
+      {/* Partnership Models */}
+      <section style={{ maxWidth: '900px', margin: `${theme.spacing.xl} auto`, padding: `0 ${theme.spacing.lg}` }}>
+        <h2 style={{ ...styles.heading2, textAlign: 'center', marginBottom: theme.spacing.xl }}>Partnership Models</h2>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: theme.spacing.lg }}>
+          <div style={{ ...styles.sectionCard, borderTop: `4px solid ${theme.colors.primary}` }}>
+            <h3 style={{ ...styles.heading3, color: theme.colors.primary, marginBottom: theme.spacing.md }}>Education & Prevention</h3>
+            <p style={styles.body}>Host parent workshops and youth groups on bullying prevention, mental health, and healthy relationships.</p>
           </div>
-
-          {/* Strategy 2 */}
-          <div className="border-l-4 border-blue-500 pl-6">
-            <h3 className="text-2xl font-bold text-slate-900 mb-4">2. Resource Connection</h3>
-            <p className="text-slate-600 mb-4">
-              Your church becomes a trusted community resource within the Saving Grace network.
-            </p>
-            <ul className="space-y-2 text-slate-600 ml-4">
-              <li>• Families see your church as a support option</li>
-              <li>• Counselors can refer students/families to your programs</li>
-              <li>• You help students connect to real support, safely</li>
-              <li>• No crisis counseling—just community care & resources</li>
-            </ul>
+          <div style={{ ...styles.sectionCard, borderTop: `4px solid ${theme.colors.accent}` }}>
+            <h3 style={{ ...styles.heading3, color: theme.colors.accent, marginBottom: theme.spacing.md }}>Family Support</h3>
+            <p style={styles.body}>Offer food pantries, financial aid, counseling referrals, and practical help for families in crisis.</p>
           </div>
-
-          {/* Strategy 3 */}
-          <div className="border-l-4 border-blue-500 pl-6">
-            <h3 className="text-2xl font-bold text-slate-900 mb-4">3. Family Support Programs</h3>
-            <p className="text-slate-600 mb-4">
-              Offer programs that complement school efforts (no duplication, no overreach).
-            </p>
-            <ul className="space-y-2 text-slate-600 ml-4">
-              <li>• Youth mentorship and spiritual formation</li>
-              <li>• Parent support groups & family nights</li>
-              <li>• Safe spaces for students to process stress</li>
-              <li>• Basic financial or material assistance for families in crisis</li>
-            </ul>
+          <div style={{ ...styles.sectionCard, borderTop: `4px solid ${theme.colors.primary}` }}>
+            <h3 style={{ ...styles.heading3, color: theme.colors.primary, marginBottom: theme.spacing.md }}>Resource Connection</h3>
+            <p style={styles.body}>Link students and families to community resources—mental health services, tutoring, job training—through Saving Grace.</p>
           </div>
-
-          {/* Strategy 4 */}
-          <div className="border-l-4 border-blue-500 pl-6">
-            <h3 className="text-2xl font-bold text-slate-900 mb-4">4. QR Code & Handouts</h3>
-            <p className="text-slate-600 mb-4">
-              Share Saving Grace materials in your community—church bulletins, youth groups, family events.
-            </p>
-            <ul className="space-y-2 text-slate-600 ml-4">
-              <li>• Print QR codes for "Get Support" page</li>
-              <li>• Include in youth ministry materials</li>
-              <li>• Feature in parent newsletters and events</li>
-              <li>• Help normalize asking for help</li>
-            </ul>
+          <div style={{ ...styles.sectionCard, borderTop: `4px solid ${theme.colors.accent}` }}>
+            <h3 style={{ ...styles.heading3, color: theme.colors.accent, marginBottom: theme.spacing.md }}>Spiritual Mentorship</h3>
+            <p style={styles.body}>Provide ongoing mentorship, spiritual guidance, and community connection for students who need it most.</p>
           </div>
         </div>
       </section>
 
-      {/* Real-World Example */}
-      <section className="px-6 py-16 bg-blue-50 rounded-lg max-w-4xl mx-auto my-12">
-        <h2 className="text-2xl font-bold text-slate-900 mb-8 text-center">A Real Example</h2>
-        <div className="bg-white p-8 rounded-lg border border-blue-200">
-          <p className="text-slate-700 mb-4">
-            <strong>Sarah</strong> is a 7th-grade student dealing with family conflict at home. She doesn't want to burden her parents, and she's embarrassed to tell her school counselor directly.
+      {/* Real Example */}
+      <section style={{ maxWidth: '900px', margin: `${theme.spacing.xl} auto`, padding: theme.spacing.lg, background: theme.colors.background, borderRadius: theme.radius.lg }}>
+        <h2 style={{ ...styles.heading2, textAlign: 'center', marginBottom: theme.spacing.lg }}>A Real Example</h2>
+        <div>
+          <p style={{ ...styles.body, marginBottom: theme.spacing.md }}>
+            <strong>Emma, age 14, reports on Saving Grace that she's being bullied.</strong>
           </p>
-          <p className="text-slate-700 mb-4">
-            She sees a QR code at youth group (placed by her church) that says "You're Not Alone." She scans it, sees the Saving Grace app, and makes a simple report about what's going on at home.
-          </p>
-          <p className="text-slate-700 mb-4">
-            The school counselor gets an alert, reaches out carefully to Sarah and her parents, and connects them with:
-          </p>
-          <ul className="space-y-2 text-slate-600 ml-6 mb-4">
-            <li>• A school-based support program</li>
-            <li>• Her church's family counseling network</li>
-            <li>• Community resources for financial/material help</li>
+          <ul style={{ ...styles.body, marginLeft: theme.spacing.lg, lineHeight: '2', marginBottom: theme.spacing.lg }}>
+            <li>🏫 Her school counselor sees the report, meets with Emma, and documents support.</li>
+            <li>⛪ The counselor also notes: "Emma's church youth leader could help provide stability."</li>
+            <li>📱 With Emma's permission, Saving Grace alerts her church that support might help.</li>
+            <li>✋ The youth leader reaches out—not as a therapist, but as a trusted mentor—and invites Emma to an after-school mentorship group.</li>
+            <li>❤️ Emma has school support AND community support. The bullying stops. She feels less alone.</li>
           </ul>
-          <p className="text-slate-700 font-semibold text-blue-700">
-            Result: Sarah gets help. Her parents feel supported, not judged. The school and church work together. No one overstepped.
+          <p style={{ ...styles.body, fontStyle: 'italic', color: theme.colors.lightText }}>
+            Both institutions did their job. Neither overstepped. Emma got help.
           </p>
         </div>
       </section>
 
-      {/* Why This Works */}
-      <section className="px-6 py-16 max-w-4xl mx-auto">
-        <h2 className="text-3xl font-bold text-slate-900 mb-12 text-center">Why This Model Works</h2>
-        <div className="grid md:grid-cols-2 gap-8">
-          <div className="p-6 border border-slate-200 rounded-lg">
-            <h3 className="text-lg font-semibold text-slate-900 mb-3">For Schools</h3>
-            <p className="text-slate-600">
-              More eyes on student wellness. Clearer pathways to family support. Less burden on counselors. Faith communities as trusted partners, not competitors.
-            </p>
-          </div>
-          <div className="p-6 border border-slate-200 rounded-lg">
-            <h3 className="text-lg font-semibold text-slate-900 mb-3">For Families</h3>
-            <p className="text-slate-600">
-              Access to support from places they already trust. School + church + community working together. No silos. Whole-family care.
-            </p>
-          </div>
-          <div className="p-6 border border-slate-200 rounded-lg">
-            <h3 className="text-lg font-semibold text-slate-900 mb-3">For Students</h3>
-            <p className="text-slate-600">
-              More resources, more trusted adults, clearer pathways to help. Normalized help-seeking. Safety net, not judgment.
-            </p>
-          </div>
-          <div className="p-6 border border-slate-200 rounded-lg">
-            <h3 className="text-lg font-semibold text-slate-900 mb-3">For Churches</h3>
-            <p className="text-slate-600">
-              Concrete way to live out mission. Deep partnership with schools. Trust built through collaboration. Students & families feel supported.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* What Churches Provide */}
-      <section className="px-6 py-16 bg-slate-100 rounded-lg max-w-4xl mx-auto my-12">
-        <h2 className="text-2xl font-bold text-slate-900 mb-8 text-center">What Your Church Can Offer</h2>
-        <div className="grid md:grid-cols-2 gap-6">
-          <div className="bg-white p-4 rounded-lg">
-            <h4 className="font-semibold text-slate-900 mb-2">Spiritual Care</h4>
-            <p className="text-slate-600 text-sm">
-              Mentorship, faith formation, belonging in a faith community.
-            </p>
-          </div>
-          <div className="bg-white p-4 rounded-lg">
-            <h4 className="font-semibold text-slate-900 mb-2">Family Support</h4>
-            <p className="text-slate-600 text-sm">
-              Parenting classes, family events, crisis assistance (meals, financial help).
-            </p>
-          </div>
-          <div className="bg-white p-4 rounded-lg">
-            <h4 className="font-semibold text-slate-900 mb-2">Youth Programs</h4>
-            <p className="text-slate-600 text-sm">
-              Safe spaces, mentorship, community service, skill-building.
-            </p>
-          </div>
-          <div className="bg-white p-4 rounded-lg">
-            <h4 className="font-semibold text-slate-900 mb-2">Awareness & Education</h4>
-            <p className="text-slate-600 text-sm">
-              Host workshops, share resources, normalize conversation about wellness.
-            </p>
-          </div>
-          <div className="bg-white p-4 rounded-lg">
-            <h4 className="font-semibold text-slate-900 mb-2">Referral Network</h4>
-            <p className="text-slate-600 text-sm">
-              Professional counseling, medical services, social services partnerships.
-            </p>
-          </div>
-          <div className="bg-white p-4 rounded-lg">
-            <h4 className="font-semibold text-slate-900 mb-2">Long-term Presence</h4>
-            <p className="text-slate-600 text-sm">
-              Walk alongside families for years, not just during crisis.
-            </p>
-          </div>
+      {/* Benefits */}
+      <section style={{ maxWidth: '900px', margin: `${theme.spacing.xl} auto`, padding: `0 ${theme.spacing.lg}` }}>
+        <h2 style={{ ...styles.heading2, textAlign: 'center', marginBottom: theme.spacing.lg }}>Why Churches Join</h2>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: theme.spacing.lg }}>
+          {[
+            { icon: '💪', title: 'Meaningful Impact', desc: 'Actually help the students you serve.' },
+            { icon: '🤝', title: 'Stronger Community', desc: 'Build deeper partnerships with schools.' },
+            { icon: '📊', title: 'Transparency', desc: 'Know what\'s happening, with clear boundaries.' },
+            { icon: '🛡️', title: 'Clear Roles', desc: 'Support students without overstepping.' },
+          ].map((item, idx) => (
+            <div key={idx} style={styles.sectionCard}>
+              <div style={{ fontSize: '2.5rem', marginBottom: theme.spacing.sm }}>{item.icon}</div>
+              <h3 style={{ ...styles.heading3, color: theme.colors.primary, marginBottom: theme.spacing.sm }}>{item.title}</h3>
+              <p style={styles.body}>{item.desc}</p>
+            </div>
+          ))}
         </div>
       </section>
 
       {/* Getting Started */}
-      <section className="px-6 py-16 max-w-4xl mx-auto">
-        <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">Getting Started</h2>
-        <div className="space-y-6">
-          <div className="flex gap-4">
-            <div className="flex-shrink-0 w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold">1</div>
-            <div>
-              <h3 className="text-lg font-semibold text-slate-900 mb-2">Reach out to us</h3>
-              <p className="text-slate-600">
-                Tell us about your church's mission and how you want to support student wellness in your community.
-              </p>
+      <section style={{ maxWidth: '900px', margin: `${theme.spacing.xl} auto`, padding: theme.spacing.lg, background: theme.colors.lightBg, borderRadius: theme.radius.lg }}>
+        <h2 style={{ ...styles.heading2, textAlign: 'center', marginBottom: theme.spacing.xl }}>How to Get Started</h2>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: theme.spacing.lg }}>
+          {[
+            { num: '1', title: 'Learn', desc: 'Understand Saving Grace and how community partnerships work.' },
+            { num: '2', title: 'Talk to Schools', desc: 'Reach out to your local superintendent or principal about partnership.' },
+            { num: '3', title: 'Sign Agreement', desc: 'Establish clear boundaries and expectations with your school district.' },
+            { num: '4', title: 'Launch Support', desc: 'Begin identifying and supporting students in partnership with schools.' },
+          ].map((step, idx) => (
+            <div key={idx} style={{ display: 'flex', gap: theme.spacing.md }}>
+              <div style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: '40px', height: '40px', background: theme.colors.primary, color: 'white', borderRadius: '50%', fontWeight: 'bold', fontSize: '1.1rem', flexShrink: 0 }}>
+                {step.num}
+              </div>
+              <div>
+                <h3 style={{ ...styles.heading3, marginBottom: theme.spacing.sm }}>{step.title}</h3>
+                <p style={styles.body}>{step.desc}</p>
+              </div>
             </div>
-          </div>
-          <div className="flex gap-4">
-            <div className="flex-shrink-0 w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold">2</div>
-            <div>
-              <h3 className="text-lg font-semibold text-slate-900 mb-2">Learn the platform</h3>
-              <p className="text-slate-600">
-                We'll walk you through Saving Grace, show you where you fit, and discuss partnership agreements.
-              </p>
+          ))}
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section style={{ maxWidth: '900px', margin: `${theme.spacing.xl} auto`, padding: `0 ${theme.spacing.lg}`, marginBottom: theme.spacing.xl }}>
+        <h2 style={{ ...styles.heading2, textAlign: 'center', marginBottom: theme.spacing.lg }}>Questions?</h2>
+        <div style={{ display: 'grid', gap: theme.spacing.lg }}>
+          {[
+            { q: 'Do we have to use Saving Grace to support students?', a: 'No. You can partner with schools in many ways. Saving Grace is just one tool that makes partnership clearer and safer.' },
+            { q: 'What if a student tells us about abuse?', a: 'The same rules apply: we report to authorities as required by law. Saving Grace doesn\'t change your mandated reporter obligations.' },
+            { q: 'Can we share student information with the school?', a: 'Only with student/family permission. Saving Grace requires explicit consent before information is shared.' },
+            { q: 'What does it cost?', a: 'Saving Grace is free for community partners. Schools may fund the platform.' },
+          ].map((item, idx) => (
+            <div key={idx} style={styles.sectionCard}>
+              <h3 style={{ ...styles.heading3, color: theme.colors.primary, marginBottom: theme.spacing.sm }}>{item.q}</h3>
+              <p style={styles.body}>{item.a}</p>
             </div>
-          </div>
-          <div className="flex gap-4">
-            <div className="flex-shrink-0 w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold">3</div>
-            <div>
-              <h3 className="text-lg font-semibold text-slate-900 mb-2">Connect with your local school</h3>
-              <p className="text-slate-600">
-                We facilitate introductions and help establish clear, respectful partnerships.
-              </p>
-            </div>
-          </div>
-          <div className="flex gap-4">
-            <div className="flex-shrink-0 w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold">4</div>
-            <div>
-              <h3 className="text-lg font-semibold text-slate-900 mb-2">Launch together</h3>
-              <p className="text-slate-600">
-                Start with awareness efforts, QR codes, and training. Build trust step by step.
-              </p>
-            </div>
-          </div>
+          ))}
         </div>
       </section>
 
       {/* CTA */}
-      <section className="px-6 py-20 text-center max-w-4xl mx-auto">
-        <h2 className="text-3xl font-bold text-slate-900 mb-6">Ready to support your community?</h2>
-        <p className="text-lg text-slate-600 mb-8">
-          Let's talk about what partnership looks like for your church.
+      <section style={{ maxWidth: '900px', margin: `${theme.spacing.xl} auto ${theme.spacing.xl}`, padding: `${theme.spacing.xl} ${theme.spacing.lg}`, textAlign: 'center' }}>
+        <h2 style={{ ...styles.heading2, marginBottom: theme.spacing.lg }}>Ready to support your community?</h2>
+        <p style={{ ...styles.body, fontSize: '1.1rem', marginBottom: theme.spacing.lg }}>
+          Let's work together to build a safer, more connected community where every student gets the support they need.
         </p>
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <a href="mailto:hello@savinggrace.school" className="px-8 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition">
-            Get in Touch
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: theme.spacing.md, justifyContent: 'center' }}>
+          <a href="mailto:hello@savinggrace.school" style={{ ...styles.primaryButton, textDecoration: 'none', display: 'inline-block' }}>
+            Contact Us
           </a>
-          <Link href="/" className="px-8 py-3 border-2 border-blue-600 text-blue-600 rounded-lg font-semibold hover:bg-blue-50 transition">
-            Back Home
+          <Link href="/schools" style={{ ...styles.secondaryButton, textDecoration: 'none', display: 'inline-block' }}>
+            For Schools
           </Link>
         </div>
       </section>

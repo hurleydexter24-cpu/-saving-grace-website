@@ -1,53 +1,48 @@
 'use client';
 
 import Link from 'next/link';
-import { Metadata } from 'next';
-
-export const metadata: Metadata = {
-  title: 'For School Districts | Saving Grace',
-  description: 'A safety and support platform designed for superintendents, principals, and school safety teams. Streamline reporting, case management, and student wellness.',
-};
+import { theme, styles } from '@/styles/theme';
 
 export default function SchoolsPage() {
   return (
-    <main className="min-h-screen bg-gradient-to-b from-slate-50 to-white">
+    <main style={{ background: '#FFFFFF', minHeight: '100vh' }}>
       {/* Hero */}
-      <section className="px-6 py-20 sm:py-28 text-center max-w-4xl mx-auto">
-        <h1 className="text-5xl sm:text-6xl font-bold text-slate-900 mb-6">
+      <section style={{ ...styles.heroSection, textAlign: 'center', marginBottom: theme.spacing.xl }} className="max-w-4xl mx-auto px-6">
+        <h1 style={{ ...styles.heading1, color: theme.colors.primary, marginBottom: theme.spacing.lg }}>
           A Safety & Support Platform Built for Schools
         </h1>
-        <p className="text-xl text-slate-600 mb-8">
+        <p style={{ ...styles.body, fontSize: '1.2rem', marginBottom: theme.spacing.xl }}>
           Reduce response time. Strengthen communication. Empower your district to support every student.
         </p>
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Link href="/get-support" className="px-8 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition">
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: theme.spacing.md, justifyContent: 'center' }}>
+          <Link href="/get-support" style={{ ...styles.primaryButton, textDecoration: 'none', display: 'inline-block' }}>
             See It In Action
           </Link>
-          <Link href="/" className="px-8 py-3 border-2 border-blue-600 text-blue-600 rounded-lg font-semibold hover:bg-blue-50 transition">
+          <Link href="/" style={{ ...styles.secondaryButton, textDecoration: 'none', display: 'inline-block' }}>
             Learn More
           </Link>
         </div>
       </section>
 
       {/* The Problem */}
-      <section className="px-6 py-16 max-w-4xl mx-auto">
-        <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">The Challenge Every District Faces</h2>
-        <div className="grid md:grid-cols-3 gap-8">
-          <div className="p-6 bg-red-50 rounded-lg">
-            <h3 className="text-lg font-semibold text-red-900 mb-3">Fragmented Reporting</h3>
-            <p className="text-red-700">
+      <section style={{ maxWidth: '900px', margin: `0 auto ${theme.spacing.xl}`, padding: `0 ${theme.spacing.lg}` }}>
+        <h2 style={{ ...styles.heading2, textAlign: 'center', marginBottom: theme.spacing.lg }}>The Challenge Every District Faces</h2>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: theme.spacing.lg }}>
+          <div style={{ ...styles.sectionCard, borderLeft: `4px solid ${theme.colors.primary}` }}>
+            <h3 style={{ ...styles.heading3, color: theme.colors.primary, marginBottom: theme.spacing.md }}>Fragmented Reporting</h3>
+            <p style={styles.body}>
               Students, parents, and teachers report concerns through different channels—emails, phone calls, forms. Nothing connects.
             </p>
           </div>
-          <div className="p-6 bg-orange-50 rounded-lg">
-            <h3 className="text-lg font-semibold text-orange-900 mb-3">Slow Response</h3>
-            <p className="text-orange-700">
+          <div style={{ ...styles.sectionCard, borderLeft: `4px solid ${theme.colors.accent}` }}>
+            <h3 style={{ ...styles.heading3, color: theme.colors.accent, marginBottom: theme.spacing.md }}>Slow Response</h3>
+            <p style={styles.body}>
               Delays in identifying, escalating, and supporting students who need help most.
             </p>
           </div>
-          <div className="p-6 bg-yellow-50 rounded-lg">
-            <h3 className="text-lg font-semibold text-yellow-900 mb-3">Workload Burden</h3>
-            <p className="text-yellow-700">
+          <div style={{ ...styles.sectionCard, borderLeft: `4px solid ${theme.colors.secondary}` }}>
+            <h3 style={{ ...styles.heading3, color: theme.colors.secondary, marginBottom: theme.spacing.md }}>Workload Burden</h3>
+            <p style={styles.body}>
               Counselors and safety teams spend hours on coordination instead of direct student support.
             </p>
           </div>
@@ -55,98 +50,67 @@ export default function SchoolsPage() {
       </section>
 
       {/* How It Works */}
-      <section className="px-6 py-16 bg-slate-900 text-white max-w-4xl mx-auto rounded-lg my-12">
-        <h2 className="text-3xl font-bold mb-12 text-center">How Saving Grace Works</h2>
-        <div className="grid md:grid-cols-2 gap-12">
+      <section style={{ maxWidth: '900px', margin: `${theme.spacing.xl} auto`, padding: theme.spacing.lg, background: theme.colors.background, borderRadius: theme.radius.lg }}>
+        <h2 style={{ ...styles.heading2, textAlign: 'center', marginBottom: theme.spacing.xl }}>How Saving Grace Works</h2>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: theme.spacing.lg }}>
           <div>
-            <h3 className="text-xl font-semibold mb-4 flex items-center">
-              <span className="inline-flex items-center justify-center w-8 h-8 bg-blue-500 rounded-full mr-3">1</span>
-              Students & Families Report
+            <h3 style={{ ...styles.heading3, color: theme.colors.primary, marginBottom: theme.spacing.md, display: 'flex', alignItems: 'center' }}>
+              <span style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: '28px', height: '28px', background: theme.colors.primary, color: 'white', borderRadius: '50%', marginRight: theme.spacing.sm, fontWeight: 'bold', fontSize: '0.9rem' }}>1</span>
+              Report
             </h3>
-            <p className="text-slate-300 mb-6">
-              A simple, safe way for students to ask for help. Parents and teachers can report concerns through a guided interface.
-            </p>
+            <p style={styles.body}>A simple, safe way for students to ask for help. Parents and teachers can report concerns too.</p>
           </div>
           <div>
-            <h3 className="text-xl font-semibold mb-4 flex items-center">
-              <span className="inline-flex items-center justify-center w-8 h-8 bg-blue-500 rounded-full mr-3">2</span>
-              Automatic Routing & Escalation
+            <h3 style={{ ...styles.heading3, color: theme.colors.primary, marginBottom: theme.spacing.md, display: 'flex', alignItems: 'center' }}>
+              <span style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: '28px', height: '28px', background: theme.colors.primary, color: 'white', borderRadius: '50%', marginRight: theme.spacing.sm, fontWeight: 'bold', fontSize: '0.9rem' }}>2</span>
+              Route
             </h3>
-            <p className="text-slate-300 mb-6">
-              Reports are immediately categorized and routed to the right team—counselors, safety officers, or administrators.
-            </p>
+            <p style={styles.body}>Reports are immediately categorized and routed to the right team—counselors, safety officers, or administrators.</p>
           </div>
           <div>
-            <h3 className="text-xl font-semibold mb-4 flex items-center">
-              <span className="inline-flex items-center justify-center w-8 h-8 bg-blue-500 rounded-full mr-3">3</span>
-              Coordinated Case Management
+            <h3 style={{ ...styles.heading3, color: theme.colors.primary, marginBottom: theme.spacing.md, display: 'flex', alignItems: 'center' }}>
+              <span style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: '28px', height: '28px', background: theme.colors.primary, color: 'white', borderRadius: '50%', marginRight: theme.spacing.sm, fontWeight: 'bold', fontSize: '0.9rem' }}>3</span>
+              Manage
             </h3>
-            <p className="text-slate-300 mb-6">
-              Your team has a single source of truth. Track outcomes, communicate securely, and document everything.
-            </p>
+            <p style={styles.body}>Your team has a single source of truth. Track outcomes, communicate securely, and document everything.</p>
           </div>
           <div>
-            <h3 className="text-xl font-semibold mb-4 flex items-center">
-              <span className="inline-flex items-center justify-center w-8 h-8 bg-blue-500 rounded-full mr-3">4</span>
-              Guided Resources & Follow-Up
+            <h3 style={{ ...styles.heading3, color: theme.colors.primary, marginBottom: theme.spacing.md, display: 'flex', alignItems: 'center' }}>
+              <span style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: '28px', height: '28px', background: theme.colors.primary, color: 'white', borderRadius: '50%', marginRight: theme.spacing.sm, fontWeight: 'bold', fontSize: '0.9rem' }}>4</span>
+              Follow-Up
             </h3>
-            <p className="text-slate-300 mb-6">
-              The platform suggests resources, tracks intervention effectiveness, and closes the loop on every case.
-            </p>
+            <p style={styles.body}>The platform suggests resources, tracks intervention effectiveness, and closes the loop on every case.</p>
           </div>
         </div>
       </section>
 
       {/* Key Features */}
-      <section className="px-6 py-16 max-w-4xl mx-auto">
-        <h2 className="text-3xl font-bold text-slate-900 mb-12 text-center">Built For Your District</h2>
-        <div className="grid md:grid-cols-2 gap-8">
-          <div className="p-6 border border-slate-200 rounded-lg">
-            <h3 className="text-lg font-semibold text-slate-900 mb-2">✓ Role-Based Access</h3>
-            <p className="text-slate-600">
-              Students, parents, teachers, counselors, SROs, and administrators see only what they need to.
-            </p>
-          </div>
-          <div className="p-6 border border-slate-200 rounded-lg">
-            <h3 className="text-lg font-semibold text-slate-900 mb-2">✓ FERPA & HIPAA Compliant</h3>
-            <p className="text-slate-600">
-              Built with privacy, security, and legal compliance at the core.
-            </p>
-          </div>
-          <div className="p-6 border border-slate-200 rounded-lg">
-            <h3 className="text-lg font-semibold text-slate-900 mb-2">✓ No Extra Burden</h3>
-            <p className="text-slate-600">
-              Replaces fragmented workflows. Your team works faster, not harder.
-            </p>
-          </div>
-          <div className="p-6 border border-slate-200 rounded-lg">
-            <h3 className="text-lg font-semibold text-slate-900 mb-2">✓ Data & Outcomes</h3>
-            <p className="text-slate-600">
-              Track trends, demonstrate impact, and show funders & boards what's working.
-            </p>
-          </div>
-          <div className="p-6 border border-slate-200 rounded-lg">
-            <h3 className="text-lg font-semibold text-slate-900 mb-2">✓ Mobile-First</h3>
-            <p className="text-slate-600">
-              Students can report from anywhere—in class, at home, or on the bus.
-            </p>
-          </div>
-          <div className="p-6 border border-slate-200 rounded-lg">
-            <h3 className="text-lg font-semibold text-slate-900 mb-2">✓ Guided Pathways</h3>
-            <p className="text-slate-600">
-              Questions adapt based on student responses. No jargon. Simple, supportive language.
-            </p>
-          </div>
+      <section style={{ maxWidth: '900px', margin: `${theme.spacing.xl} auto`, padding: `0 ${theme.spacing.lg}` }}>
+        <h2 style={{ ...styles.heading2, textAlign: 'center', marginBottom: theme.spacing.lg }}>Built For Your District</h2>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: theme.spacing.lg }}>
+          {['Role-Based Access', 'FERPA & HIPAA Compliant', 'No Extra Burden', 'Data & Outcomes', 'Mobile-First', 'Guided Pathways'].map((feature, idx) => (
+            <div key={idx} style={styles.sectionCard}>
+              <h3 style={{ ...styles.heading3, color: theme.colors.primary, marginBottom: theme.spacing.sm }}>✓ {feature}</h3>
+              <p style={styles.body}>
+                {feature === 'Role-Based Access' && 'Students, parents, teachers, counselors, SROs, and administrators see only what they need to.'}
+                {feature === 'FERPA & HIPAA Compliant' && 'Built with privacy, security, and legal compliance at the core.'}
+                {feature === 'No Extra Burden' && 'Replaces fragmented workflows. Your team works faster, not harder.'}
+                {feature === 'Data & Outcomes' && 'Track trends, demonstrate impact, and show funders & boards what\'s working.'}
+                {feature === 'Mobile-First' && 'Students can report from anywhere—in class, at home, or on the bus.'}
+                {feature === 'Guided Pathways' && 'Questions adapt based on student responses. No jargon. Simple, supportive language.'}
+              </p>
+            </div>
+          ))}
         </div>
       </section>
 
       {/* Who Benefits */}
-      <section className="px-6 py-16 bg-blue-50 rounded-lg max-w-4xl mx-auto my-12">
-        <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">For Your Team</h2>
-        <div className="grid md:grid-cols-2 gap-8">
+      <section style={{ maxWidth: '900px', margin: `${theme.spacing.xl} auto`, padding: theme.spacing.lg, background: theme.colors.lightBg, borderRadius: theme.radius.lg }}>
+        <h2 style={{ ...styles.heading2, textAlign: 'center', marginBottom: theme.spacing.lg }}>For Your Team</h2>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: theme.spacing.lg }}>
           <div>
-            <h3 className="text-lg font-semibold text-blue-900 mb-3">Superintendents & Principals</h3>
-            <ul className="text-blue-800 space-y-2">
+            <h3 style={{ ...styles.heading3, color: theme.colors.primary, marginBottom: theme.spacing.md }}>Superintendents & Principals</h3>
+            <ul style={{ ...styles.body, marginLeft: theme.spacing.lg, lineHeight: '2' }}>
               <li>• Dashboard of all active cases and outcomes</li>
               <li>• Compliance documentation automated</li>
               <li>• Data for grant applications & board reports</li>
@@ -154,8 +118,8 @@ export default function SchoolsPage() {
             </ul>
           </div>
           <div>
-            <h3 className="text-lg font-semibold text-blue-900 mb-3">School Counselors</h3>
-            <ul className="text-blue-800 space-y-2">
+            <h3 style={{ ...styles.heading3, color: theme.colors.primary, marginBottom: theme.spacing.md }}>School Counselors</h3>
+            <ul style={{ ...styles.body, marginLeft: theme.spacing.lg, lineHeight: '2' }}>
               <li>• One place to manage all student cases</li>
               <li>• Secure messaging with families</li>
               <li>• Automated resource recommendations</li>
@@ -163,16 +127,16 @@ export default function SchoolsPage() {
             </ul>
           </div>
           <div>
-            <h3 className="text-lg font-semibold text-blue-900 mb-3">Teachers & Staff</h3>
-            <ul className="text-blue-800 space-y-2">
+            <h3 style={{ ...styles.heading3, color: theme.colors.primary, marginBottom: theme.spacing.md }}>Teachers & Staff</h3>
+            <ul style={{ ...styles.body, marginLeft: theme.spacing.lg, lineHeight: '2' }}>
               <li>• Easy way to report student concerns</li>
               <li>• Know students got help (read-only outcomes)</li>
               <li>• Peace of mind that system is tracking follow-up</li>
             </ul>
           </div>
           <div>
-            <h3 className="text-lg font-semibold text-blue-900 mb-3">Safety Teams & SROs</h3>
-            <ul className="text-blue-800 space-y-2">
+            <h3 style={{ ...styles.heading3, color: theme.colors.primary, marginBottom: theme.spacing.md }}>Safety Teams & SROs</h3>
+            <ul style={{ ...styles.body, marginLeft: theme.spacing.lg, lineHeight: '2' }}>
               <li>• High-severity threat alerts</li>
               <li>• Coordinated response protocols</li>
               <li>• Documentation for incident review</li>
@@ -182,51 +146,37 @@ export default function SchoolsPage() {
       </section>
 
       {/* Why Now */}
-      <section className="px-6 py-16 max-w-4xl mx-auto">
-        <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">Why Districts Choose Saving Grace</h2>
-        <div className="space-y-6">
-          <div className="flex gap-4">
-            <div className="flex-shrink-0 w-6 h-6 bg-green-500 rounded-full flex items-center justify-center text-white font-bold">✓</div>
-            <div>
-              <h3 className="text-lg font-semibold text-slate-900">Designed by educators & counselors</h3>
-              <p className="text-slate-600">Not imposed by tech—shaped by people who know school safety.</p>
+      <section style={{ maxWidth: '900px', margin: `${theme.spacing.xl} auto`, padding: `0 ${theme.spacing.lg}` }}>
+        <h2 style={{ ...styles.heading2, textAlign: 'center', marginBottom: theme.spacing.xl }}>Why Districts Choose Saving Grace</h2>
+        <div style={{ display: 'grid', gap: theme.spacing.lg }}>
+          {[
+            { title: 'Designed by educators & counselors', desc: 'Not imposed by tech—shaped by people who know school safety.' },
+            { title: 'Proof of impact', desc: 'Early adopters report 40% faster response times and stronger family trust.' },
+            { title: 'Grant-eligible', desc: 'Qualifies for school safety, mental health, and community resilience funding.' },
+            { title: 'Real support, not just software', desc: 'Implementation, training, and ongoing guidance included.' },
+          ].map((item, idx) => (
+            <div key={idx} style={{ display: 'flex', gap: theme.spacing.md }}>
+              <div style={{ flexShrink: 0, width: '28px', height: '28px', background: theme.colors.accent, borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', fontWeight: 'bold' }}>✓</div>
+              <div>
+                <h3 style={{ ...styles.heading3, marginBottom: theme.spacing.sm }}>{item.title}</h3>
+                <p style={styles.body}>{item.desc}</p>
+              </div>
             </div>
-          </div>
-          <div className="flex gap-4">
-            <div className="flex-shrink-0 w-6 h-6 bg-green-500 rounded-full flex items-center justify-center text-white font-bold">✓</div>
-            <div>
-              <h3 className="text-lg font-semibold text-slate-900">Proof of impact</h3>
-              <p className="text-slate-600">Early adopters report 40% faster response times and stronger family trust.</p>
-            </div>
-          </div>
-          <div className="flex gap-4">
-            <div className="flex-shrink-0 w-6 h-6 bg-green-500 rounded-full flex items-center justify-center text-white font-bold">✓</div>
-            <div>
-              <h3 className="text-lg font-semibold text-slate-900">Grant-eligible</h3>
-              <p className="text-slate-600">Qualifies for school safety, mental health, and community resilience funding.</p>
-            </div>
-          </div>
-          <div className="flex gap-4">
-            <div className="flex-shrink-0 w-6 h-6 bg-green-500 rounded-full flex items-center justify-center text-white font-bold">✓</div>
-            <div>
-              <h3 className="text-lg font-semibold text-slate-900">Real support, not just software</h3>
-              <p className="text-slate-600">Implementation, training, and ongoing guidance included.</p>
-            </div>
-          </div>
+          ))}
         </div>
       </section>
 
       {/* CTA */}
-      <section className="px-6 py-20 text-center max-w-4xl mx-auto">
-        <h2 className="text-3xl font-bold text-slate-900 mb-6">Ready to transform how your district supports students?</h2>
-        <p className="text-lg text-slate-600 mb-8">
+      <section style={{ maxWidth: '900px', margin: `${theme.spacing.xl} auto ${theme.spacing.xl}`, padding: `${theme.spacing.xl} ${theme.spacing.lg}`, textAlign: 'center' }}>
+        <h2 style={{ ...styles.heading2, marginBottom: theme.spacing.lg }}>Ready to transform how your district supports students?</h2>
+        <p style={{ ...styles.body, fontSize: '1.1rem', marginBottom: theme.spacing.lg }}>
           See Saving Grace in action. Talk to your leadership team. Let's build a safer, more connected school community together.
         </p>
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Link href="/get-support" className="px-8 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition">
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: theme.spacing.md, justifyContent: 'center' }}>
+          <Link href="/get-support" style={{ ...styles.primaryButton, textDecoration: 'none', display: 'inline-block' }}>
             Schedule a Demo
           </Link>
-          <a href="mailto:hello@savinggrace.school" className="px-8 py-3 border-2 border-blue-600 text-blue-600 rounded-lg font-semibold hover:bg-blue-50 transition">
+          <a href="mailto:hello@savinggrace.school" style={{ ...styles.secondaryButton, textDecoration: 'none', display: 'inline-block' }}>
             Contact Leadership
           </a>
         </div>
